@@ -1,2 +1,2 @@
 # tomato-timer
-Tomato Timer is a pomodoro timer app 
+Tomato Timer is a pomodoro timer app
