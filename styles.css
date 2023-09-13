@@ -1,0 +1,19 @@
+:root {
+    --pomadoro: hsl(100, 25%, 40%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--pomadoro);
+}
+
+#js-progress {
+    width: 100%;
+    height: 1rem;
+}
