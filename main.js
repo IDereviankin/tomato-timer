@@ -8,10 +8,11 @@ const timer = {
 
 let interval;
 
-const buttonSound = new Audio('button-sound.mp3');
+const audioUrl = require('url:./round-start.mp3');
+const buttonSound = new Audio(audioUrl);
 const mainButton = document.getElementById('js-btn');
 mainButton.addEventListener('click', () => {
-    // buttonSound.play();
+    buttonSound.play();
     const { action } = mainButton.dataset;
     if (action === 'start') {
         startTimer();
