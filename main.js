@@ -11,7 +11,7 @@ let interval;
 const buttonSound = new Audio('button-sound.mp3');
 const mainButton = document.getElementById('js-btn');
 mainButton.addEventListener('click', () => {
-    buttonSound.play();
+    // buttonSound.play();
     const { action } = mainButton.dataset;
     if (action === 'start') {
         startTimer();
@@ -45,7 +45,7 @@ function startTimer() {
     if (timer.mode === 'pomodoro') timer.sessions++;
 
     mainButton.dataset.action = 'stop';
-    mainButton.textContent = 'stop';
+    mainButton.textContent = 'Павза!';
     mainButton.classList.add('active');
 
     interval = setInterval(function() {
@@ -70,7 +70,7 @@ function startTimer() {
 
             if (Notification.permission === 'granted') {
                 const text =
-                    timer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
+                    timer.mode === 'pomodoro' ? 'Час працювати!' : 'Відпочинь!';
                 new Notification(text);
             }
 
@@ -85,7 +85,7 @@ function stopTimer() {
     clearInterval(interval);
 
     mainButton.dataset.action = 'start';
-    mainButton.textContent = 'start';
+    mainButton.textContent = 'Поїхали!';
     mainButton.classList.remove('active');
 }
 
@@ -100,7 +100,7 @@ function updateClock() {
     sec.textContent = seconds;
 
     const text =
-        timer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
+        timer.mode === 'pomodoro' ? 'Час працювати!' : 'Відпочинь!';
     document.title = `${minutes}:${seconds} — ${text}`;
 
     const progress = document.getElementById('js-progress');
@@ -120,6 +120,7 @@ function switchMode(mode) {
         .forEach(e => e.classList.remove('active'));
     document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
     document.body.style.backgroundColor = `var(--${mode})`;
+    document.querySelector("#js-btn").style.color = `var(--${mode})`
     document
         .getElementById('js-progress')
         .setAttribute('max', timer.remainingTime.total);
@@ -145,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             Notification.requestPermission().then(function(permission) {
                 if (permission === 'granted') {
                     new Notification(
-                        'Awesome! You will be notified at the start of each session'
+                        'Відмінно! Вам приходитиме нотифікація на початку кожної сесії'
                     );
                 }
             });

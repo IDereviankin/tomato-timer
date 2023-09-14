@@ -1,5 +1,5 @@
 :root {
-    --pomadoro: hsl(223, 25%, 40%);
+    --pomodoro: hsl(223, 25%, 40%);
     --shortBreak: hsl(48, 23%, 40%);
     --longBreak: hsl(105, 16%, 40%);
 }
@@ -12,7 +12,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    background-color: var(--pomadoro);
+    background-color: var(--pomodoro);
 
     display: flex;
     flex-direction: column;
@@ -63,22 +63,28 @@ progress::-webkit-progress-value {
 }
 
 .main-button {
-    color: var(--pomadoro);
+    color: var(--pomodoro);
     background-color: white;
     font-size: 4rem;
     padding: 1rem;
     border: none;
     border-radius: 1.5rem;
     border-bottom: 0.7rem lightgray solid;
+    cursor: pointer;
 }
 
 .main-button:active {
     border-bottom: none;
-    /*translate: 0 0.5rem;*/
     margin-top: 0.7rem;
 }
 
 .clock {
     font-size: 8rem;
     color: white;
+    display: flex;
+    align-items: center;
+}
+.separator {
+    font-size: 6rem;
+    margin: 0 0.5rem;
 }
