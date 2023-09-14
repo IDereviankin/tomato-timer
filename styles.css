@@ -1,5 +1,7 @@
 :root {
-    --pomadoro: hsl(328, 25%, 40%);
+    --pomadoro: hsl(223, 25%, 40%);
+    --shortBreak: hsl(48, 23%, 40%);
+    --longBreak: hsl(105, 16%, 40%);
 }
 
 * {
